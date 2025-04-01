@@ -100,13 +100,6 @@
   	    <defaultGoal>install</defaultGoal>
         <plugins>
             <plugin>
-                <groupId>org.kie</groupId>
-                <artifactId>kie-maven-plugin</artifactId>
-                <version>${bamoe.version}</version>
-                <extensions>true</extensions>
-            </plugin>
-
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.plugin.version}</version>
