@@ -8,9 +8,9 @@ import org.kie.api.command.Command;
 import org.kie.api.command.BatchExecutionCommand;
 
 import org.kie.internal.command.CommandFactory;
-import org.drools.core.command.runtime.BatchExecutionCommandImpl;
-import org.drools.core.command.runtime.rule.InsertElementsCommand;
-import org.drools.core.command.runtime.rule.FireAllRulesCommand;
+import org.drools.commands.runtime.BatchExecutionCommandImpl;
+import org.drools.commands.runtime.rule.InsertElementsCommand;
+import org.drools.commands.runtime.rule.FireAllRulesCommand;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

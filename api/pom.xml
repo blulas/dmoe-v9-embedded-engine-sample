@@ -58,14 +58,23 @@
             <artifactId>kie-api</artifactId>
         </dependency>
 
+        <!-- This library is missing from the bamoe maven library and bam-bom, manually adding from the community build. Remove version tag once this is added to bamoe-bom packaging -->
         <dependency>
             <groupId>org.kie</groupId>
             <artifactId>kie-ci</artifactId>
+            <version>999-SNAPSHOT</version>
+        </dependency>
+
+        <!-- This library is missing from the bamoe-bom, manually adding the version number, remove version tag once this is added to bamoe-bom packaging -->
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-engine</artifactId>
+            <version>${bamoe.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.drools</groupId>
-            <artifactId>drools-engine</artifactId>
+            <artifactId>drools-commands</artifactId>
         </dependency>
 
         <dependency>

@@ -2,26 +2,32 @@
 If you are currently running docker, podman, or Rancher Desktop, you can utilize the docker compose configuration scripts in this section of the repository.  You can use `Docker Compose` to run the BAMOE images locally and the easiest way is to use `Rancher Desktop`.  Click [here](https://docs.rancherdesktop.io/getting-started/installation/) in order to get instructions on how to install Rancher Desktop in Docker mode.  
 
 ## Maven Repository
-For more information on how to properly setup Maven for local development, visit [Setting Up Maven](./maven/README.md).
+For more information on how to properly setup Maven for local development, visit [Setting Up Maven](../maven/README.md).
 
 ## Container Images
-In order to setup Maven and other infrastructure services, you can use the supplied `docker-compose.yml` file, located in the root of the `setup` folder.  In order to install all services, simply open a terminal, go the repository `setup` folder, and type the following:
+All published BAMOE images can be pulled directly from Quay.io.  Here are the steps to follow:
 
-```
- docker compose up
-```
+1.  To install the basic BAMOE services, use the supplied `docker-compose.yml` in the `docker-compose` folder:
 
-or for a specific service in the `docker-compose.yml` file...
+    ```bash
+    docker compose up [optional]<service-name>
+    ```
 
-```
- docker compose up [optional]<service-name>
-```
+    where `<service-name>` equals the name of the service in compose file (optional, leaving this off will install all services in the `docker-compose.yml` file.)
+
+2.  To install the extended infrastructure services, mostly used by PAMOE, use the supplied `docker-compose-infrastructure.yml` in the `docker-compose` folder:
+
+    ```bash
+    docker compose -f docker-compose-infrastructure.yml up [optional]<service-name>
+    ```
+
+    where `<service-name>` equals the name of the service in compose file (optional, leaving this off will install all services in the `docker-compose-infrastructure.yml` file.)
 
 3.  The images will start containers on the following ports:
 
     | Service                   | Port @ localhost              |
     | ------------------------- | ----------------------------- |
-    | BAMOE Maven               | [9020](http://localhost:9020) |
+    | BAMOE Maven               | [9011](http://localhost:9020) |
     | BAMOE Canvas              | [9090](http://localhost:9090) |
 
 

@@ -5,7 +5,7 @@
     <!-- POM -->
     <groupId>com.ibm.techsales.dmoe.v9.samples</groupId>
     <artifactId>dmoe-v9-embedded-drl-sample-kjar</artifactId>
-    <version>9.2.0-ibm-0004<</version>
+    <version>9.2.0-ibm-0004</version>
     <packaging>kjar</packaging>
 
     <!-- Global Properties -->
@@ -40,13 +40,20 @@
         <!-- Shared Libraries -->
         <dmoe-v9-embedded-engine-api.groupId>com.ibm.techsales.dmoe.v9.samples</dmoe-v9-embedded-engine-api.groupId>
         <dmoe-v9-embedded-engine-api.artifactId>dmoe-v9-embedded-engine-api</dmoe-v9-embedded-engine-api.artifactId>
-        <dmoe-v9-embedded-engine-api.version>9.2.0-ibm-0004<</dmoe-v9-embedded-engine-api.version>
+        <dmoe-v9-embedded-engine-api.version>9.2.0-ibm-0004</dmoe-v9-embedded-engine-api.version>
     </properties>
 
     <!-- Dependency Management -->
     <dependencyManagement>
         <dependencies>
             <!-- BAMOE Libraries -->
+			<dependency>
+				<groupId>${bamoe.groupId}</groupId>
+				<artifactId>${bamoe.artifactId}</artifactId>
+				<version>${bamoe.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -57,14 +64,18 @@
             <artifactId>kie-api</artifactId>
         </dependency>
 
+        <!-- This library is missing from the bamoe maven library and bam-bom, manually adding from the community build. Remove version tag once this is added to bamoe-bom packaging -->
         <dependency>
             <groupId>org.kie</groupId>
             <artifactId>kie-ci</artifactId>
+            <version>999-SNAPSHOT</version>
         </dependency>
 
+        <!-- This library is missing from the bamoe-bom, manually adding the version number, remove version tag once this is added to bamoe-bom packaging -->
         <dependency>
             <groupId>org.drools</groupId>
             <artifactId>drools-engine</artifactId>
+            <version>${bamoe.version}</version>
         </dependency>
 
         <dependency>
