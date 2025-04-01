@@ -11,7 +11,7 @@
     <!-- Modules -->
     <modules>
         <module>api</module>
-        <module>drl-sample-kjar</module>
-        <module>dmn-sample-kjar</module>
+        <module>drl-sample-ruleset</module>
+        <module>dmn-sample-decision</module>
     </modules>
 </project>
