@@ -1,98 +1,106 @@
 <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/SETTINGS/1.0.0" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-
     <localRepository>${user.home}/.m2/repository</localRepository>
     <profiles>
+        <!-- BAMOE v9.2.0 via Container Engine -->
         <profile>
-            <id>ibm-bamoe-v8-enterprise-maven-repository</id>
+            <id>ibm-bamoe-v920-maven-repository</id>
             <repositories>
                 <repository>
-                    <id>ibm-bamoe-v8-enterprise-maven-repository</id>
-                    <url>https://maven.repository.redhat.com/ga/</url>
+                    <id>ibm-bamoe-v920-maven-repository</id>
+                    <url>http://localhost:9020</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
                     <snapshots>
-                        <enabled>true</enabled>
+                        <enabled>false</enabled>
                     </snapshots>
                 </repository>
             </repositories>
 
             <pluginRepositories>
                 <pluginRepository>
-                    <id>ibm-bamoe-v8-enterprise-maven-repository</id>
-                    <url>https://maven.repository.redhat.com/ga/</url>
+                    <id>ibm-bamoe-v920-maven-repository</id>
+                    <url>http://localhost:9020</url>
                     <releases>
                         <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+        <!-- BAMOE 9.2.0 via Offline -->
+        <profile>
+            <id>ibm-bamoe-v920-offline-maven-repository</id>
+            <repositories>
+                <repository>
+                    <id>ibm-bamoe-v920-offline-maven-repository</id>
+                    <url>file:///Users/${env.USER}/.m2/bamoe-9.2.0.GA-maven-repository</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>ibm-bamoe-v920-offline-maven-repository</id>
+                    <url>file:///Users/${env.USER}/.m2/bamoe-9.2.0.GA-maven-repository</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+        <!-- Apache Community -->
+        <!-- Please Note:  
+            
+            This is not an authorized way to import BAMOE libraries.
+            This setting is being added in order to get around a packaging issue with
+            BAMOE relese 9.2.0-GA, which neglected to package all embedded model dependencies.
+
+            This will be fixed with the next release of BAMOE v9.2.1
+        -->
+        <profile>
+            <id>apache-snapshots</id>
+            <repositories>
+                <repository>
+                    <id>apache-snapshots</id>
+                    <url>https://repository.apache.org/snapshots</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>apache-snapshots</id>
+                    <url>https://repository.apache.org/snapshots</url>
+                    <releases>
+                        <enabled>false</enabled>
                     </releases>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
                 </pluginRepository>
             </pluginRepositories>
-        </profile>
-
-        <!-- BAMOE 8.0.6 via Offline -->
-        <profile>
-            <id>ibm-bamoe-v806-offline-maven-repository</id>
-            <repositories>
-                <repository>
-                    <id>ibm-bamoe-v806-offline-maven-repository</id>
-                    <url>file:///Users/${env.USER}/.m2/bamoe-8.0.6.GA-maven-repository</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>ibm-bamoe-v806-offline-maven-repository</id>
-                    <url>file:///Users/${env.USER}/.m2/bamoe-8.0.6.GA-maven-repository</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                    </pluginRepository>
-            </pluginRepositories>
-        </profile>
-
-        <!-- BAMOE 8.0.7 via Offline -->
-        <profile>
-            <id>ibm-bamoe-v807-offline-maven-repository</id>
-            <repositories>
-                <repository>
-                    <id>ibm-bamoe-v807-offline-maven-repository</id>
-                    <url>file:///Users/${env.USER}/.m2/bamoe-8.0.7.GA-maven-repository</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>ibm-bamoe-v807-offline-maven-repository</id>
-                    <url>file:///Users/${env.USER}/.m2/bamoe-8.0.7.GA-maven-repository</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                    </pluginRepository>
-            </pluginRepositories>
-        </profile>
+        </profile>        
     </profiles>
 
     <activeProfiles>
-        <activeProfile>ibm-bamoe-v8-enterprise-maven-repository</activeProfile>
-        <activeProfile>ibm-bamoe-v806-enterprise-offline-maven-repository</activeProfile>
-<!--    <activeProfile>ibm-bamoe-v807-enterprise-offline-maven-repository</activeProfile> -->
+        <activeProfile>ibm-bamoe-v920-maven-repository</activeProfile>
+        <activeProfile>ibm-bamoe-v920-offline-maven-repository</activeProfile>
+        <activeProfile>apache-snapshots</activeProfile>
     </activeProfiles>
 </settings>
