@@ -46,8 +46,9 @@ public class DecisionEngineAdaptor extends EmbeddedEngineAdaptor {
 
         setKieServices(KieServices.Factory.get());
         setReleaseId(getKieServices().newReleaseId(groupId, artifactId, version));
-        setKieContainer(getKieServices().newKieContainer(getReleaseId()));
-
+//        setKieContainer(getKieServices().newKieContainer(getReleaseId()));
+        setKieContainer(getKieServices().getKieClasspathContainer());
+        
         logger.info("Registered decision engine: namespace=" + namespace + ", modelName=" + modelName + ", KJAR=" + getReleaseId().toString() + "...");
     }
 
@@ -69,9 +70,9 @@ public class DecisionEngineAdaptor extends EmbeddedEngineAdaptor {
 
         // Execute the model
         DMNResult dmnResults = dmnRuntime.evaluateAll(dmnModel, dmnContext);
-
         for (DMNDecisionResult dmnResult : dmnResults.getDecisionResults()) {
 
+            // Format the results into something consumable 
             DecisionResult result = new DecisionResult();
             result.setDecisionId(dmnResult.getDecisionId());
             result.setDecisionName(dmnResult.getDecisionName());

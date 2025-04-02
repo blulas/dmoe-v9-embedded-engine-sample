@@ -62,7 +62,8 @@ public class RuleEngineAdaptor extends EmbeddedEngineAdaptor {
 
         setKieServices(KieServices.Factory.get());
         setReleaseId(getKieServices().newReleaseId(groupId, artifactId, version));
-        setKieContainer(getKieServices().newKieContainer(getReleaseId()));
+//        setKieContainer(getKieServices().newKieContainer(getReleaseId()));
+        setKieContainer(getKieServices().getKieClasspathContainer());
         
         this.kieSessionsPool = getKieContainer().newKieSessionsPool(kieSessionPoolSize);
         this.kieSessionName = kieSessionName;

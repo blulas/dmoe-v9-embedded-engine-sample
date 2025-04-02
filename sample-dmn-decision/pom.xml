@@ -4,7 +4,7 @@
 
     <!-- POM -->
     <groupId>com.ibm.techsales.dmoe.v9.samples</groupId>
-    <artifactId>dmoe-v9-embedded-engine-api</artifactId>
+    <artifactId>dmoe-v9-embedded-engine-sample-dmn-decision</artifactId>
     <version>9.2.0-ibm-0004</version>
     <packaging>jar</packaging>
 
@@ -15,7 +15,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Java Properties -->
-        <java.version>17</java.version>  
+        <java.version>17</java.version>  <!-- JDK 17 is the only supported JDK level for BAMOE v920 and beyond... -->
 
         <!-- Common Maven Plugins -->
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -26,8 +26,9 @@
 
         <!-- Testing Properties -->
         <skipTests>true</skipTests>
+        <junit.version>5.13.0-M1</junit.version>
 
-		<!-- Logging -->
+        <!-- Logging Properties -->
         <slf4j.version>2.0.17</slf4j.version>
         <logback.version>1.5.18</logback.version>
 
@@ -35,12 +36,17 @@
 		<bamoe.groupId>com.ibm.bamoe</bamoe.groupId>
 		<bamoe.artifactId>bamoe-bom</bamoe.artifactId>
 		<bamoe.version>9.2.0-ibm-0004</bamoe.version>
+
+        <!-- Sharable Fact Model -->
+        <dmoe-v9-embedded-engine-sample-fact-model.groupId>com.ibm.techsales.dmoe.v9.samples</dmoe-v9-embedded-engine-sample-fact-model.groupId>
+        <dmoe-v9-embedded-engine-sample-fact-model.artifactId>dmoe-v9-embedded-engine-sample-fact-model</dmoe-v9-embedded-engine-sample-fact-model.artifactId>
+        <dmoe-v9-embedded-engine-sample-fact-model.version>9.2.0-ibm-0004</dmoe-v9-embedded-engine-sample-fact-model.version>
     </properties>
 
     <!-- Dependency Management -->
     <dependencyManagement>
         <dependencies>
-			<!-- BAMOE GA -->
+            <!-- BAMOE Libraries -->
 			<dependency>
 				<groupId>${bamoe.groupId}</groupId>
 				<artifactId>${bamoe.artifactId}</artifactId>
@@ -52,45 +58,21 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- Shared Application Libraries -->
+        <dependency>
+            <groupId>${dmoe-v9-embedded-engine-sample-fact-model.groupId}</groupId>
+            <artifactId>${dmoe-v9-embedded-engine-sample-fact-model.artifactId}</artifactId>
+            <version>${dmoe-v9-embedded-engine-sample-fact-model.version}</version>
+        </dependency>
+
         <!-- BAMOE Dependencies -->
-        <!-- This library is missing from the bamoe-bom, manually adding the version number, remove version tag once this is added to bamoe-bom packaging -->
 
-<!--
+        <!-- Testing -->
         <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-engine</artifactId>
-            <version>${bamoe.version}</version>
-        </dependency>
--->
-
-        <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-compiler</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-model-compiler</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-commands</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-xml-support</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.kie</groupId>
-            <artifactId>kie-dmn-core</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- Logging -->

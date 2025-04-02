@@ -4,7 +4,7 @@
 
     <!-- POM -->
     <groupId>com.ibm.techsales.dmoe.v9.samples</groupId>
-    <artifactId>dmoe-v9-embedded-engine-api</artifactId>
+    <artifactId>dmoe-v9-embedded-engine-sample-application</artifactId>
     <version>9.2.0-ibm-0004</version>
     <packaging>jar</packaging>
 
@@ -26,6 +26,7 @@
 
         <!-- Testing Properties -->
         <skipTests>true</skipTests>
+        <junit.version>5.13.0-M1</junit.version>
 
 		<!-- Logging -->
         <slf4j.version>2.0.17</slf4j.version>
@@ -35,6 +36,26 @@
 		<bamoe.groupId>com.ibm.bamoe</bamoe.groupId>
 		<bamoe.artifactId>bamoe-bom</bamoe.artifactId>
 		<bamoe.version>9.2.0-ibm-0004</bamoe.version>
+
+        <!-- Sharable Fact Model -->
+        <dmoe-v9-embedded-engine-sample-fact-model.groupId>com.ibm.techsales.dmoe.v9.samples</dmoe-v9-embedded-engine-sample-fact-model.groupId>
+        <dmoe-v9-embedded-engine-sample-fact-model.artifactId>dmoe-v9-embedded-engine-sample-fact-model</dmoe-v9-embedded-engine-sample-fact-model.artifactId>
+        <dmoe-v9-embedded-engine-sample-fact-model.version>9.2.0-ibm-0004</dmoe-v9-embedded-engine-sample-fact-model.version>
+
+        <!-- API -->
+        <dmoe-v9-embedded-engine-api.groupId>com.ibm.techsales.dmoe.v9.samples</dmoe-v9-embedded-engine-api.groupId>
+        <dmoe-v9-embedded-engine-api.artifactId>dmoe-v9-embedded-engine-api</dmoe-v9-embedded-engine-api.artifactId>
+        <dmoe-v9-embedded-engine-api.version>9.2.0-ibm-0004</dmoe-v9-embedded-engine-api.version>
+
+        <!-- DRL Sample Decision (KJAR) -->
+        <dmoe-v9-embedded-drl-sample-ruleset.groupId>com.ibm.techsales.dmoe.v9.samples</dmoe-v9-embedded-drl-sample-ruleset.groupId>
+        <dmoe-v9-embedded-drl-sample-ruleset.artifactId>dmoe-v9-embedded-engine-sample-drl-ruleset</dmoe-v9-embedded-drl-sample-ruleset.artifactId>
+        <dmoe-v9-embedded-drl-sample-ruleset.version>9.2.0-ibm-0004</dmoe-v9-embedded-drl-sample-ruleset.version>
+
+        <!-- DMN Sample Decision (KJAR) -->
+        <dmoe-v9-embedded-dmn-sample-decision.groupId>com.ibm.techsales.dmoe.v9.samples</dmoe-v9-embedded-dmn-sample-decision.groupId>
+        <dmoe-v9-embedded-dmn-sample-decision.artifactId>dmoe-v9-embedded-engine-sample-dmn-decision</dmoe-v9-embedded-dmn-sample-decision.artifactId>
+        <dmoe-v9-embedded-dmn-sample-decision.version>9.2.0-ibm-0004</dmoe-v9-embedded-dmn-sample-decision.version>
     </properties>
 
     <!-- Dependency Management -->
@@ -52,45 +73,37 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- BAMOE Dependencies -->
-        <!-- This library is missing from the bamoe-bom, manually adding the version number, remove version tag once this is added to bamoe-bom packaging -->
-
-<!--
+        <!-- Shared Application Libraries -->
         <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-engine</artifactId>
-            <version>${bamoe.version}</version>
-        </dependency>
--->
-
-        <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-compiler</artifactId>
+            <groupId>${dmoe-v9-embedded-engine-sample-fact-model.groupId}</groupId>
+            <artifactId>${dmoe-v9-embedded-engine-sample-fact-model.artifactId}</artifactId>
+            <version>${dmoe-v9-embedded-engine-sample-fact-model.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-model-compiler</artifactId>
+            <groupId>${dmoe-v9-embedded-engine-api.groupId}</groupId>
+            <artifactId>${dmoe-v9-embedded-engine-api.artifactId}</artifactId>
+            <version>${dmoe-v9-embedded-engine-api.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-core</artifactId>
+            <groupId>${dmoe-v9-embedded-drl-sample-ruleset.groupId}</groupId>
+            <artifactId>${dmoe-v9-embedded-drl-sample-ruleset.artifactId}</artifactId>
+            <version>${dmoe-v9-embedded-drl-sample-ruleset.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-commands</artifactId>
+            <groupId>${dmoe-v9-embedded-dmn-sample-decision.groupId}</groupId>
+            <artifactId>${dmoe-v9-embedded-dmn-sample-decision.artifactId}</artifactId>
+            <version>${dmoe-v9-embedded-dmn-sample-decision.version}</version>
         </dependency>
 
+        <!-- Testing -->
         <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-xml-support</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.kie</groupId>
-            <artifactId>kie-dmn-core</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- Logging -->
