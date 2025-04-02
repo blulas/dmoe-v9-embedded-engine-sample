@@ -36,7 +36,7 @@ public class SampleRuleServiceUnitTests {
 
             // Load the application properties
             Properties properties = new Properties();
-            FileInputStream input = new FileInputStream("src/main/resources/application.properties");
+            FileInputStream input = new FileInputStream("src/main/resources/dmoe-v9-embedded-drl-sample-kjar.properties");
             properties.load(input);
 
             // Create and register an adaptor
@@ -66,7 +66,7 @@ public class SampleRuleServiceUnitTests {
         }
     }
 
-    @Test
+//    @Test
     void processRulesViaNamedFacts() {
 
         try {

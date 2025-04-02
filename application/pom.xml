@@ -74,24 +74,29 @@
 
     <dependencies>
         <!-- Shared Application Libraries -->
+
+        <!-- Sharable Fact Model -->
         <dependency>
             <groupId>${dmoe-v9-embedded-engine-sample-fact-model.groupId}</groupId>
             <artifactId>${dmoe-v9-embedded-engine-sample-fact-model.artifactId}</artifactId>
             <version>${dmoe-v9-embedded-engine-sample-fact-model.version}</version>
         </dependency>
 
+        <!-- Sharable Engine API -->
         <dependency>
             <groupId>${dmoe-v9-embedded-engine-api.groupId}</groupId>
             <artifactId>${dmoe-v9-embedded-engine-api.artifactId}</artifactId>
             <version>${dmoe-v9-embedded-engine-api.version}</version>
         </dependency>
 
+        <!-- DRL Sample Ruleset (KJAR) -->
         <dependency>
             <groupId>${dmoe-v9-embedded-drl-sample-ruleset.groupId}</groupId>
             <artifactId>${dmoe-v9-embedded-drl-sample-ruleset.artifactId}</artifactId>
             <version>${dmoe-v9-embedded-drl-sample-ruleset.version}</version>
         </dependency>
 
+        <!-- DMN Sample Decision (KJAR) -->
         <dependency>
             <groupId>${dmoe-v9-embedded-dmn-sample-decision.groupId}</groupId>
             <artifactId>${dmoe-v9-embedded-dmn-sample-decision.artifactId}</artifactId>

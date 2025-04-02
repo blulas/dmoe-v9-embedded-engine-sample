@@ -6,7 +6,7 @@
     <groupId>com.ibm.techsales.dmoe.v9.samples</groupId>
     <artifactId>dmoe-v9-embedded-engine-sample-drl-ruleset</artifactId>
     <version>9.2.0-ibm-0004</version>
-    <packaging>jar</packaging>
+    <packaging>kjar</packaging>
 
     <!-- Global Properties -->
     <properties>
@@ -93,37 +93,10 @@
   	    <defaultGoal>install</defaultGoal>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.plugin.version}</version>
-                <configuration>
-                  <source>${java.version}</source>
-                  <target>${java.version}</target>
-                </configuration>
-			      </plugin>
-
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>${maven.resources.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>default-testResources</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>testResources</goal>
-                        </goals>
-                        <configuration>
-                          <resources>
-                            <resource>
-                              <directory>src/test/resources</directory>
-                              <excludes>
-                                <exclude>**/*.*.scesim</exclude>
-                              </excludes>
-                            </resource>
-                          </resources>
-                        </configuration>
-                    </execution>
-                </executions>
+                <groupId>org.kie</groupId>
+                <artifactId>kie-maven-plugin</artifactId>
+                <version>999-SNAPSHOT</version>
+                <extensions>true</extensions>
             </plugin>
 		</plugins>
     </build>

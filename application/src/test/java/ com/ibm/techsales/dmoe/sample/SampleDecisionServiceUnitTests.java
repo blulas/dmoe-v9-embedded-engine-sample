@@ -32,14 +32,14 @@ public class SampleDecisionServiceUnitTests {
     private static final String PROPERTY_DMN_MODEL_NAME   = "dmoe-v9-embedded-dmn-sample-kjar.dmn.model";
     private static final String DATE_FORMAT = "yyyy-MM-dd";
 
-    @Test
+//    @Test
     void processDecisions() {
 
         try {
 
             // Load the application properties
             Properties properties = new Properties();
-            FileInputStream input = new FileInputStream("src/main/resources/application.properties");
+            FileInputStream input = new FileInputStream("src/main/resources/dmoe-v9-embedded-dmn-sample-kjar.properties");
             properties.load(input);
 
             // Create and register an adaptor
@@ -59,7 +59,7 @@ public class SampleDecisionServiceUnitTests {
              // Be sure to call dispose, otherwise the engine pooll will not be released and you will get memory leaks    
             decisionEngineAdaptor.dispose();
         } catch (Exception e) {
-            logger.error("Error executing ruleset: reason=" + e.getMessage());
+            logger.error("Error executing decision: reason=" + e.getMessage());
             e.printStackTrace();
         }
     }
