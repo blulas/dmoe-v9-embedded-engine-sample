@@ -6,7 +6,7 @@
     <groupId>com.ibm.techsales.dmoe.v9.samples</groupId>
     <artifactId>dmoe-v9-embedded-engine-sample-application</artifactId>
     <version>9.2.0-ibm-0004</version>
-    <packaging>jar</packaging>
+    <packaging>kjar</packaging>
 
     <!-- Global Properties -->
     <properties>
@@ -128,6 +128,13 @@
     <build>
   	    <defaultGoal>install</defaultGoal>
         <plugins>
+            <plugin>
+                <groupId>org.kie</groupId>
+                <artifactId>kie-maven-plugin</artifactId>
+                <version>999-SNAPSHOT</version>
+                <extensions>true</extensions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
