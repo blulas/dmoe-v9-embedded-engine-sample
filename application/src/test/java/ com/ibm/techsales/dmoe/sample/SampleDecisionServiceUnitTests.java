@@ -25,13 +25,13 @@ public class SampleDecisionServiceUnitTests {
 
     private static final Logger logger = LoggerFactory.getLogger(SampleDecisionServiceUnitTests.class);
 
-    private static final String PROPERTIES_FILE           = "src/main/resources/dmoe-v9-embedded-dmn-sample-kjar.properties";
-    private static final String PROPERTY_KJAR_GROUP_ID    = "dmoe-v9-embedded-dmn-sample-kjar.groupId";
-    private static final String PROPERTY_KJAR_ARTIFACT_ID = "dmoe-v9-embedded-dmn-sample-kjar.artifactId";
-    private static final String PROPERTY_KJAR_VERSION     = "dmoe-v9-embedded-dmn-sample-kjar.version";
-    private static final String PROPERTY_DMN_NAMESPACE    = "dmoe-v9-embedded-dmn-sample-kjar.dmn.namespace";
-    private static final String PROPERTY_DMN_MODEL_NAME   = "dmoe-v9-embedded-dmn-sample-kjar.dmn.model";
-    private static final String DATE_FORMAT = "yyyy-MM-dd";
+    private static final String PROPERTIES_FILE           = "src/main/resources/kjar.properties";
+    private static final String PROPERTY_KJAR_GROUP_ID    = "dmoe-embedded-dmn-sample-kjar.groupId";
+    private static final String PROPERTY_KJAR_ARTIFACT_ID = "dmoe-embedded-dmn-sample-kjar.artifactId";
+    private static final String PROPERTY_KJAR_VERSION     = "dmoe-embedded-dmn-sample-kjar.version";
+    private static final String PROPERTY_DMN_NAMESPACE    = "dmoe-embedded-dmn-sample-kjar.dmn.namespace";
+    private static final String PROPERTY_DMN_MODEL_NAME   = "dmoe-embedded-dmn-sample-kjar.dmn.model";
+    private static final String DATE_FORMAT               = "yyyy-MM-dd";
 
 //    @Test
     void processDecisions() {

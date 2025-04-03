@@ -23,12 +23,12 @@ public class SampleRuleServiceUnitTests {
 
     private static final Logger logger = LoggerFactory.getLogger(SampleRuleServiceUnitTests.class);
 
-    private static final String PROPERTIES_FILE                 = "src/main/resources/dmoe-v9-embedded-drl-sample-kjar.properties";
-    private static final String PROPERTY_KJAR_GROUP_ID          = "dmoe-v9-embedded-drl-sample-kjar.groupId";
-    private static final String PROPERTY_KJAR_ARTIFACT_ID       = "dmoe-v9-embedded-drl-sample-kjar.artifactId";
-    private static final String PROPERTY_KJAR_VERSION           = "dmoe-v9-embedded-drl-sample-kjar.version";
-    private static final String PROPERTY_KIE_SESSION_NAME       = "dmoe-v9-embedded-drl-sample-kjar.kie.session.name";
-    private static final String PROPERTY_KIE_SESSION_POOL_SIZE  = "dmoe-v9-embedded-drl-sample-kjar.kie.session.poolsize";
+    private static final String PROPERTIES_FILE                 = "src/main/resources/kjar.properties";
+    private static final String PROPERTY_KJAR_GROUP_ID          = "dmoe-embedded-drl-sample-kjar.groupId";
+    private static final String PROPERTY_KJAR_ARTIFACT_ID       = "dmoe-embedded-drl-sample-kjar.artifactId";
+    private static final String PROPERTY_KJAR_VERSION           = "dmoe-embedded-drl-sample-kjar.version";
+    private static final String PROPERTY_KIE_SESSION_NAME       = "dmoe-embedded-drl-sample-kjar.kie.session.name";
+    private static final String PROPERTY_KIE_SESSION_POOL_SIZE  = "dmoe-embedded-drl-sample-kjar.kie.session.poolsize";
 
     @Test
     void processRules() {

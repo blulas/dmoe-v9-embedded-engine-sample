@@ -53,16 +53,6 @@
 
     <dependencies>
         <!-- BAMOE Dependencies -->
-        <!-- This library is missing from the bamoe-bom, manually adding the version number, remove version tag once this is added to bamoe-bom packaging -->
-
-<!--
-        <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-engine</artifactId>
-            <version>${bamoe.version}</version>
-        </dependency>
--->
-
         <dependency>
             <groupId>org.drools</groupId>
             <artifactId>drools-compiler</artifactId>
@@ -118,7 +108,7 @@
                   <source>${java.version}</source>
                   <target>${java.version}</target>
                 </configuration>
-			      </plugin>
+			</plugin>
 
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>

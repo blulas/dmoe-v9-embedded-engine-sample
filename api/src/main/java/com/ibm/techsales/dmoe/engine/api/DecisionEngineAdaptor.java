@@ -44,9 +44,6 @@ public class DecisionEngineAdaptor extends EmbeddedEngineAdaptor {
         this.namespace = namespace;
         this.modelName = modelName;
 
-        logger.info("MODEL NS: " + this.namespace);
-        logger.info("MODEL NAME: " + this.modelName);
-
         setKieServices(KieServices.Factory.get());
         setReleaseId(getKieServices().newReleaseId(groupId, artifactId, version));
 //        setKieContainer(getKieServices().newKieContainer(getReleaseId()));

@@ -38,9 +38,9 @@
 		<bamoe.version>9.2.0-ibm-0004</bamoe.version>
 
         <!-- Sharable Fact Model -->
-        <dmoe-v9-embedded-engine-sample-fact-model.groupId>com.ibm.techsales.dmoe.v9.samples</dmoe-v9-embedded-engine-sample-fact-model.groupId>
-        <dmoe-v9-embedded-engine-sample-fact-model.artifactId>dmoe-v9-embedded-engine-sample-fact-model</dmoe-v9-embedded-engine-sample-fact-model.artifactId>
-        <dmoe-v9-embedded-engine-sample-fact-model.version>9.2.0-ibm-0004</dmoe-v9-embedded-engine-sample-fact-model.version>
+        <dmoe-embedded-engine-sample-fact-model.groupId>com.ibm.techsales.dmoe.v9.samples</dmoe-embedded-engine-sample-fact-model.groupId>
+        <dmoe-embedded-engine-sample-fact-model.artifactId>dmoe-v9-embedded-engine-sample-fact-model</dmoe-embedded-engine-sample-fact-model.artifactId>
+        <dmoe-embedded-engine-sample-fact-model.version>9.2.0-ibm-0004</dmoe-embedded-engine-sample-fact-model.version>
     </properties>
 
     <!-- Dependency Management -->
@@ -60,9 +60,9 @@
     <dependencies>
         <!-- Shared Application Libraries -->
         <dependency>
-            <groupId>${dmoe-v9-embedded-engine-sample-fact-model.groupId}</groupId>
-            <artifactId>${dmoe-v9-embedded-engine-sample-fact-model.artifactId}</artifactId>
-            <version>${dmoe-v9-embedded-engine-sample-fact-model.version}</version>
+            <groupId>${dmoe-embedded-engine-sample-fact-model.groupId}</groupId>
+            <artifactId>${dmoe-embedded-engine-sample-fact-model.artifactId}</artifactId>
+            <version>${dmoe-embedded-engine-sample-fact-model.version}</version>
         </dependency>
 
         <!-- BAMOE Dependencies -->
