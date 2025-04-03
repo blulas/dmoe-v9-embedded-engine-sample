@@ -4,7 +4,7 @@
 
     <!-- POM -->
     <groupId>com.ibm.techsales.dmoe.v9.samples</groupId>
-    <artifactId>dmoe-v9-embedded-engine-sample-drl-ruleset</artifactId>
+    <artifactId>dmoe-v9-embedded-engine-sample-dmn-kjar</artifactId>
     <version>9.2.0-ibm-0004</version>
     <packaging>kjar</packaging>
 
