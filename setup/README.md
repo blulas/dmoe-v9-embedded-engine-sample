@@ -27,7 +27,7 @@ All published BAMOE images can be pulled directly from Quay.io.  Here are the st
 
     | Service                   | Port @ localhost              |
     | ------------------------- | ----------------------------- |
-    | BAMOE Maven               | [9011](http://localhost:9020) |
+    | BAMOE Maven               | [9020](http://localhost:9020) |
     | BAMOE Canvas              | [9090](http://localhost:9090) |
 
 
