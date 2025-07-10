@@ -15,19 +15,11 @@ All published BAMOE images can be pulled directly from Quay.io.  Here are the st
 
     where `<service-name>` equals the name of the service in compose file (optional, leaving this off will install all services in the `docker-compose.yml` file.)
 
-2.  To install the extended infrastructure services, mostly used by PAMOE, use the supplied `docker-compose-infrastructure.yml` in the `docker-compose` folder:
-
-    ```bash
-    docker compose -f docker-compose-infrastructure.yml up [optional]<service-name>
-    ```
-
-    where `<service-name>` equals the name of the service in compose file (optional, leaving this off will install all services in the `docker-compose-infrastructure.yml` file.)
-
-3.  The images will start containers on the following ports:
+2.  The images will start containers on the following ports:
 
     | Service                   | Port @ localhost              |
     | ------------------------- | ----------------------------- |
-    | BAMOE Maven               | [9020](http://localhost:9020) |
+    | BAMOE Maven               | [9021](http://localhost:9021) |
     | BAMOE Canvas              | [9090](http://localhost:9090) |
 
 

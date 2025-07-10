@@ -52,6 +52,6 @@ public class RuleResults {
 
     @Override
     public String toString() {
-        return "startedOn=" + startedOn + ", completedOn=" + completedOn + ", firedRuleCount=" + firedRuleCount + ", executionDuration=" + executionDuration;
+        return "startedOn=" + startedOn + ", completedOn=" + completedOn + ", firedRuleCount=" + firedRuleCount + ", executionDuration=" + executionDuration + ", updatedFacts=" + getFacts();
     }
 }

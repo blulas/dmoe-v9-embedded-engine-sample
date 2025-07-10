@@ -1,5 +1,5 @@
 # Maven Repository
-With `IBM Business Automation Manager Open Editions v9.2.0` aligning with its previous version BAMOE v8 in the downstream build model, the artifacts are no longer available in Maven Central. The artifacts are shipped as part of the product as a Container Image and Maven Repository inside the compressed file in a consumable format.
+With `IBM Business Automation Manager Open Editions v9.2.1` aligning with its previous version BAMOE v8 in the downstream build model, the artifacts are no longer available in Maven Central. The artifacts are shipped as part of the product as a Container Image and Maven Repository inside the compressed file in a consumable format.
 
 If you have a Maven Repository Manager tool like Artifactory or Nexus, you can import the compressed BAMOE Maven repository content into Maven Repository Manager. For companies without such infrastructure, it is highly recommended to use the container image and make it available within the company for all developers and the continuous integration (CI) system. For companies that already use a Maven Repository Manager tool, developers and the CI system are typically configured to connect with it. If you are using the container image, ensure that it is made available and provide the URL that developers and the CI system need to specify in their `settings.xml` file.
 
@@ -12,7 +12,7 @@ There are two ways to do this (_you should actually do both in case of offline b
 1.  Run the image, mapping its port:
 
 ~~~shell
-docker run -d -p 9020:8080 quay.io/bamoe/maven-repository:9.2.0-ibm-0004
+docker run -d -p 9021:8080 quay.io/bamoe/maven-repository:9.2.1-ibm-0005
 ~~~
 
 or install via the supplied `docker-compose.yml` file:
@@ -29,7 +29,7 @@ You can verify the repository is running by accessing the repository in your bro
 ## Configuring a local Maven Repository 
 If you prefer not to use containers, you can download and configure the BAMOE Maven repository from the compressed file. The BAMOE Maven repository contains the libraries that Java developers need to build BAMOE applications.  The following approach can also be used in order to make Maven depencencies available from an enterprise Maven repository, such as `Artifactory`.  To configure the BAMOE Maven repository locally follow these steps:
 
-1.  Download the BAMOE v9.2.0 Maven Repository (`bamoe-9.2.0-maven-repository.zip`) from the official product archive download site:
+1.  Download the BAMOE v9.2.0 Maven Repository (`bamoe-9.2.1-maven-repository.zip`) from the official product archive download site:
  
     - [**IBM Passport Advantage**](https://www.ibm.com/software/passportadvantage/pao_customer.html)
     - [**IBM Fix Central**](https://www.ibm.com/support/fixcentral/)
@@ -42,13 +42,13 @@ If you prefer not to use containers, you can download and configure the BAMOE Ma
 <settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/SETTINGS/1.0.0" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <localRepository>${user.home}/.m2/repository</localRepository>
     <profiles>
-        <!-- BAMOE v9.2.0 via Container Image -->
+        <!-- BAMOE v9.2.1 via Container Engine -->
         <profile>
-            <id>ibm-bamoe-v920-maven-repository</id>
+            <id>ibm-bamoe-v921-maven-repository</id>
             <repositories>
                 <repository>
-                    <id>ibm-bamoe-v920-maven-repository</id>
-                    <url>http://localhost:9020</url>
+                    <id>ibm-bamoe-v921-maven-repository</id>
+                    <url>http://localhost:9021</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -60,8 +60,8 @@ If you prefer not to use containers, you can download and configure the BAMOE Ma
 
             <pluginRepositories>
                 <pluginRepository>
-                    <id>ibm-bamoe-v920-maven-repository</id>
-                    <url>http://localhost:9020</url>
+                    <id>ibm-bamoe-v921-maven-repository</id>
+                    <url>http://localhost:9021</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -72,13 +72,13 @@ If you prefer not to use containers, you can download and configure the BAMOE Ma
             </pluginRepositories>
         </profile>
 
-        <!-- BAMOE 9.2.0 via Offline -->
+        <!-- BAMOE 9.2.1 via Offline -->
         <profile>
-            <id>ibm-bamoe-v920-offline-maven-repository</id>
+            <id>ibm-bamoe-v921-offline-maven-repository</id>
             <repositories>
                 <repository>
-                    <id>ibm-bamoe-v920-offline-maven-repository</id>
-                    <url>file:///Users/{USER}/.m2/bamoe-9.2.0.GA-maven-repository</url>
+                    <id>ibm-bamoe-v921-offline-maven-repository</id>
+                    <url>file:///${user.home}/.m2/bamoe-9.2.1.GA-maven-repository</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -89,8 +89,8 @@ If you prefer not to use containers, you can download and configure the BAMOE Ma
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
-                    <id>ibm-bamoe-v920-offline-maven-repository</id>
-                    <url>file:///Users/{USER}/.m2/bamoe-9.2.0.GA-maven-repository</url>
+                    <id>ibm-bamoe-v921-offline-maven-repository</id>
+                    <url>file:///${user.home}/.m2/bamoe-9.2.1.GA-maven-repository</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -100,49 +100,11 @@ If you prefer not to use containers, you can download and configure the BAMOE Ma
                     </pluginRepository>
             </pluginRepositories>
         </profile>
-
-        <!-- Apache Community -->
-        <!-- Please Note:  
-            
-            This is not an authorized way to import BAMOE libraries.
-            This setting is being added in order to get around a packaging issue with
-            BAMOE relese 9.2.0-GA, which neglected to package all embedded model dependencies.
-
-            This will be fixed with the next release of BAMOE v9.2.1
-        -->
-        <profile>
-            <id>apache-snapshots</id>
-            <repositories>
-                <repository>
-                    <id>apache-snapshots</id>
-                    <url>https://repository.apache.org/snapshots</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>apache-snapshots</id>
-                    <url>https://repository.apache.org/snapshots</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
-        </profile>        
     </profiles>
 
     <activeProfiles>
-        <activeProfile>ibm-bamoe-v920-maven-repository</activeProfile>
-        <activeProfile>ibm-bamoe-v920-offline-maven-repository</activeProfile>
-        <activeProfile>apache-snapshots</activeProfile>
+        <activeProfile>ibm-bamoe-v921-maven-repository</activeProfile>
+        <activeProfile>ibm-bamoe-v921-offline-maven-repository</activeProfile>
     </activeProfiles>
 </settings>
 ```

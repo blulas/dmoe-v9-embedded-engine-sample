@@ -5,7 +5,7 @@
     <!-- POM -->
     <groupId>com.ibm.techsales.dmoe.v9.samples</groupId>
     <artifactId>dmoe-v9-embedded-engine-sample-drl-kjar</artifactId>
-    <version>9.2.0-ibm-0004</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>kjar</packaging>
 
     <!-- Global Properties -->
@@ -35,12 +35,12 @@
 		<!-- BAMOE -->
 		<bamoe.groupId>com.ibm.bamoe</bamoe.groupId>
 		<bamoe.artifactId>bamoe-bom</bamoe.artifactId>
-		<bamoe.version>9.2.0-ibm-0004</bamoe.version>
+		<bamoe.version>9.2.1-ibm-0005</bamoe.version>
 
         <!-- Sharable Fact Model -->
         <dmoe-embedded-engine-sample-fact-model.groupId>com.ibm.techsales.dmoe.v9.samples</dmoe-embedded-engine-sample-fact-model.groupId>
         <dmoe-embedded-engine-sample-fact-model.artifactId>dmoe-v9-embedded-engine-sample-fact-model</dmoe-embedded-engine-sample-fact-model.artifactId>
-        <dmoe-embedded-engine-sample-fact-model.version>9.2.0-ibm-0004</dmoe-embedded-engine-sample-fact-model.version>
+        <dmoe-embedded-engine-sample-fact-model.version>1.0.0-SNAPSHOT</dmoe-embedded-engine-sample-fact-model.version>
     </properties>
 
     <!-- Dependency Management -->
@@ -66,6 +66,15 @@
         </dependency>
 
         <!-- BAMOE Dependencies -->
+        <dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+		</dependency>		
+
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-canonical-model</artifactId>
+		</dependency>	
 
         <!-- Testing -->
         <dependency>
@@ -95,7 +104,6 @@
             <plugin>
                 <groupId>org.kie</groupId>
                 <artifactId>kie-maven-plugin</artifactId>
-                <version>999-SNAPSHOT</version>
                 <extensions>true</extensions>
             </plugin>
 		</plugins>
